@@ -12,9 +12,11 @@ def home():
         
     if request.method == 'POST':
         res = json.loads(request.data.decode())
-        res = dict(res)['data']
-        print (res)
-        return jsonify('OK')
+        res = dict(res)['data']['text']
+        if 'hi' in str(res).lower():
+            return jsonify('hello')
+        else:
+            return jsonify('Hi isuru, how can i help you with')
 
 if __name__ == '__main__':
     app.run(debug=True)

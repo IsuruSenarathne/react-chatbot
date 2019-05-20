@@ -32,7 +32,7 @@ class Demo extends Component {
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(response =>  this._sendMessage(JSON.stringify(response)))
     .catch(error => console.error('Error:', error));
     this.setState({
       messageList: [...this.state.messageList, message]
